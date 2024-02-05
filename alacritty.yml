@@ -1,0 +1,25 @@
+import:
+  - ~/.alacritty-colorscheme/themes/wombat.yaml
+
+# 余白設定
+window:
+  padding:
+    x: 8
+    y: 6
+  dimensions:
+    columns: 140
+    lines: 40
+
+# フォント設定（サイズのみ）
+font:
+  size: 16
+  normal:
+    family: Mononoki Nerd Font
+    # family: Ricty Diminished Discord
+
+shell:
+  program: /bin/zsh
+  args:
+   - -l
+   - -c
+   - 'tmux a -t default || tmux new -s default\; source ~/.config/tmux/default.session.conf'
