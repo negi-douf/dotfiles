@@ -1,0 +1,40 @@
+[username]
+disabled = true
+
+[directory]
+truncation_length = 4
+truncate_to_repo = true
+
+[hostname]
+style = "bold green"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch ]($style)"
+
+[package]
+disabled = true
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bold white"
+format = "$symbol[${ram}( | ${swap}) ]($style)"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[openstack]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[python]
+format = "[${symbol}${pyenv_prefix}($virtualenv )]($style)"
+
+[battery]
+disabled = true
