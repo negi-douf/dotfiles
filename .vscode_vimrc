@@ -1,0 +1,35 @@
+"Auto reload .vimrc
+augroup source-vimrc
+    autocmd!
+    autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
+    autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+augroup END
+
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
+set wildmode=list:longest
+
+set virtualedit=onemore
+
+set expandtab
+set tabstop=4
+set autoindent
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set rtp+=/opt/homebrew/opt/fzf
+
+nnoremap j gj
+nnoremap k gk
+
+syntax enable
+
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+autocmd! bufwritepost $MYVIMRC source %
