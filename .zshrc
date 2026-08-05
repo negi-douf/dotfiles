@@ -36,13 +36,7 @@ alias zrc='vim ~/.zshrc'
 alias szrc='source ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias vstar='vim ~/.config/starship.toml'
-alias exa='exa -F'
-alias exal='exa -l'
-alias exal='exa -l'
-alias exala='exa -la'
-alias exat='exa -lT'
-alias exat='exa -lT'
-alias exatl='exa -lTL'
+
 alias posh='poetry shell'
 alias gist='git status'
 alias gips='git push origin'
@@ -55,6 +49,24 @@ alias giffc='git diff --cached'
 alias gilg='git log'
 alias gicm='git commit -m'
 alias rm='trash-put'
+
+if type eza > /dev/null 2>&1; then
+  # 標準の ls を eza に置き換え（色付き、アイコン表示）
+  alias ls='eza --icons --color=always --group-directories-first'
+
+  # ll: 詳細リスト表示（パーミッション、サイズ、Gitステータスなど）
+  alias ll='eza -hl --icons --color=always --group-directories-first --git'
+
+  # la: 隠しファイルも含めてすべて表示
+  alias la='eza -ahl --icons --color=always --group-directories-first --git'
+
+  # lt: ディレクトリ構造をツリー状に表示（標準の tree コマンドの代わり）
+  alias lt='eza --tree --icons --level=2'
+else
+  # もし eza がインストールされていない環境のためのフォールバック
+  alias ll='ls -l'
+  alias la='ls -la'
+fi
 
 eval "$(zoxide init zsh)"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
